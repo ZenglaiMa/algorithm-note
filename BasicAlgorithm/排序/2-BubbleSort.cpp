@@ -24,9 +24,8 @@ void bubbleSort(int arr[], int len) {
 int main(void) {
 
     int arr[10] = { 5, 3, 6, 8, 1, 7, 9, 4, 2, 5 };
-    int length = sizeof(arr) / sizeof(int);
-    bubbleSort(arr, length);
-    for(int i = 0; i < length; i++)
+    bubbleSort(arr, 10);
+    for(int i = 0; i < 10; i++)
         printf("%d ", arr[i]);
     printf("\n");
 

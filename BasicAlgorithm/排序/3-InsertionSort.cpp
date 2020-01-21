@@ -23,9 +23,8 @@ void InsertionSort(int arr[], int len) {
 int main(void) {
 
     int arr[10] = { 5, 3, 6, 8, 1, 7, 9, 4, 2, 5 };
-    int length = sizeof(arr) / sizeof(int);
-    InsertionSort(arr, length);
-    for(int i = 0; i < length; i++)
+    InsertionSort(arr, 10);
+    for(int i = 0; i < 10; i++)
         printf("%d ", arr[i]);
     printf("\n");
 
