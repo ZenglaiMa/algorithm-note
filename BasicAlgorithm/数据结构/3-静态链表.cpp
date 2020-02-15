@@ -13,3 +13,7 @@ typedef struct {
 } SeqList;
 
 SeqList node[size];
+
+/*
+	静态链表的一般的解题步骤: 算法笔记 P263~P264.
+*/
