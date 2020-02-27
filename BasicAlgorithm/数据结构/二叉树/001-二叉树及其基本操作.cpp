@@ -97,6 +97,17 @@ int BiTreeDepth(BiTree root) {
     return depth;
 }
 
+// 求一棵二叉树中叶子结点的个数
+void countLeaf(BiTree root, int * count) {
+    if(root) {
+        if((!(root->lchild)) && (!(root->rchild))) { // 如果一个结点无左右子树, 则它为叶子结点, 计数器+1
+            (*count)++;
+        }
+        countLeaf(root->lchild, count);
+        countLeaf(root->rchild, count);
+    }
+}
+
 // 给定一棵二叉树的先序序列和中序序列, 重构这棵二叉树, 函数返回重构完成的二叉树(算法笔记P204~P295)
 const int maxn = 100;
 ElemType pre[maxn], in[maxn];
@@ -126,4 +137,37 @@ BiTree create(int preL, int preR, int inL, int inR) { // 先序序列区间为[p
     root->rchild = create(preL + numLeft + 1, preR, k + 1, inR);
     
     return root;
+}
+
+int main(void) {
+
+    int n = 8;
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &pre[i]);
+    }
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &in[i]);
+    }
+
+    BiTree root = create(0, n - 1, 0, n - 1);
+
+    printf("先序序列:\n");
+    preOrder(root);
+
+    printf("中序序列:\n");
+    inOrder(root);
+
+    printf("后序序列:\n");
+    postOrder(root);
+
+    printf("层序序列:\n");
+    layerOrder(root);
+
+    printf("二叉树深度 = %d\n", BiTreeDepth(root));
+
+    int count = 0;
+    countLeaf(root, &count);
+    printf("二叉树叶子结点个数 = %d\n", count);
+
+    return 0;
 }
