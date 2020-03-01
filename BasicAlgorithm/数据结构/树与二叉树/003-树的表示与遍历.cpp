@@ -20,7 +20,7 @@ typedef struct {
 
 Tree TNode[maxn]; // 结点数组, maxn为结点上限个数
 
-// 树的先根遍历
+// 树的先根遍历(DFS)
 void preOrder(int root) {
     printf("%d\n", TNode[root].data);
     for(int i = 0; i < TNode[root].child.size(); i++) {
@@ -28,7 +28,7 @@ void preOrder(int root) {
     }
 }
 
-// 树的层序遍历
+// 树的层序遍历(BFS)
 void layerOrder(int root) {
     queue<int> q;
     q.push(root);
