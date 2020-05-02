@@ -10,7 +10,8 @@ using namespace std;
 
 const int N = 100;
 char A[N], B[N];
-int dp[N][N];
+int dp[N][N]; // dp[i][j] 表示字符串A的 i 号位和字符串B的 j 号位之前(包括i号位和j号位本身的字符)的LCS长度(下标从1开始).
+char seq[N]; // 存放子序列本身
 
 int main(int argc, char *argv[]) {
 
@@ -36,6 +37,27 @@ int main(int argc, char *argv[]) {
     }
     // dp[lenA][lenB] 即为LCS长度
     printf("%d\n", dp[lenA][lenB]);
+    
+    // 求LCS序列
+    int i = lenA, j = lenB, num = 0;
+    while(i >= 1 && j >= 1) {
+        if(A[i] == B[j]) {
+            seq[num++] = A[i];
+            i--;
+            j--;
+        } else {
+            if(dp[i - 1][j] >= dp[i][j - 1]) {
+                i--;
+            } else {
+                j--;
+            }
+        }
+    }
+    // 输出LCS序列
+    for(int i = num - 1; i >= 0; i--) {
+        printf("%c", seq[i]);
+    }
+    printf("\n");
 
     return 0;
 }
