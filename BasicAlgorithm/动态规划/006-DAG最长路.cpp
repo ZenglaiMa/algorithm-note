@@ -59,7 +59,7 @@ int main(void) {
     }
 
     int k = 0;
-    for(int i = 0; i < n; i++) { // 所有 dp[i] 中最大的那个即为最长路径长度
+    for(int i = 1; i < n; i++) { // 所有 dp[i] 中最大的那个即为最长路径长度
         if(dp[i] > dp[k]) {
             k = i;
         }
