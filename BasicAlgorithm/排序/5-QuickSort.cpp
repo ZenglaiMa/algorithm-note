@@ -62,6 +62,8 @@ void quickSort(int A[], int left, int right) {
 
 int main(void) {
 
+    srand((unsigned) time(NULL));
+
     int arr[11] = { 35,18,16,72,24,65,12,88,46,28,55 };
     quickSort(arr, 0, 11 - 1);
     for(int i = 0; i < 11; i++)
